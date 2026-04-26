@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeFi AMMシミュレーター</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body data-demo="amm">
+  <header class="site-shell topbar">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">01</span>
+      <span class="brand-text">
+        <span class="brand-title">DeFi AMM Simulator</span>
+        <span class="brand-subtitle">流動性プールと価格崩壊の直感</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主要ページ">
+      <a href="../../index.html">トップ</a>
+      <a href="../02_dao_vote/index.html">DAO投票</a>
+      <a href="../../glossary.html">用語辞書</a>
+    </nav>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Mandatory demo / Part 2 DeFi</p>
+      <h1>流動性が薄くなると、なぜ価格は急に動くのか。</h1>
+      <p class="lead">AMMは売り手と買い手を直接マッチングする代わりに、プールの残量から価格を決めます。大きな注文を入れて、価格変化と流動性枯渇を観察します。</p>
+    </section>
+
+    <section class="workspace" aria-label="AMMデモ">
+      <div class="control-panel">
+        <h2>取引を入れる</h2>
+        <div class="field">
+          <label for="action">取引タイプ</label>
+          <select id="action" data-action>
+            <option value="buy">USDCでETHを買う</option>
+            <option value="sell">ETHを売ってUSDCを受け取る</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="amount">注文額（USDC換算）</label>
+          <input id="amount" data-amount type="number" min="1" step="1000" value="30000">
+        </div>
+        <div class="button-row">
+          <button class="primary-button" data-trade type="button">取引する</button>
+          <button class="secondary-button" data-stress type="button">失敗シナリオ</button>
+          <button class="secondary-button" data-reset type="button">リセット</button>
+        </div>
+        <p class="muted" style="margin-top:16px">実資金や実プロトコルではありません。講義用に単純化した定数積AMMモデルです。</p>
+      </div>
+
+      <div class="result-panel">
+        <h2>プールの状態</h2>
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <span class="small-label">ETH残量</span>
+            <span class="stat-value" data-eth>100.00 ETH</span>
+          </div>
+          <div class="stat-tile">
+            <span class="small-label">USDC残量</span>
+            <span class="stat-value" data-usdc>300,000 USDC</span>
+          </div>
+          <div class="stat-tile">
+            <span class="small-label">現在価格</span>
+            <span class="stat-value" data-price>1 ETH = 3,000 USDC</span>
+          </div>
+          <div class="stat-tile">
+            <span class="small-label">初期価格比</span>
+            <span class="stat-value" data-slippage>+0.0%</span>
+          </div>
+        </div>
+
+        <div class="pool-visual" aria-label="流動性プールの残量">
+          <div>
+            <div class="tank"><div class="tank-fill eth-fill" data-eth-fill></div></div>
+            <div class="tank-label">ETH reserve</div>
+          </div>
+          <div class="formula">x * y = <span data-k>30,000,000</span></div>
+          <div>
+            <div class="tank"><div class="tank-fill usdc-fill" data-usdc-fill></div></div>
+            <div class="tank-label">USDC reserve</div>
+          </div>
+        </div>
+
+        <div data-result class="insight"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="axis-grid">
+        <div class="axis-tile accent-tech">
+          <h3>技術</h3>
+          <p>価格式は透明でも、プール残量が薄いと滑りやすい。</p>
+        </div>
+        <div class="axis-tile accent-market">
+          <h3>市場</h3>
+          <p>十分な流動性を集め続けられるかがサービス品質になる。</p>
+        </div>
+        <div class="axis-tile accent-reg">
+          <h3>規制</h3>
+          <p>仲介者がいない取引を、どの制度で扱うかが論点になる。</p>
+        </div>
+        <div class="axis-tile accent-resp">
+          <h3>責任</h3>
+          <p>想定外の価格変動で損失が出たとき、誰が説明するか。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-shell footer">
+    <p>観察ポイント: DeFiは「自動で動く」だけではなく、失敗時の利用者保護と責任分界まで含めて評価します。</p>
+  </footer>
+  <script src="../../assets/site.js"></script>
+</body>
+</html>

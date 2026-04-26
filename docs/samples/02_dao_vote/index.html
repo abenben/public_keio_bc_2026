@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAO投票シミュレーター</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body data-demo="dao">
+  <header class="site-shell topbar">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">02</span>
+      <span class="brand-text">
+        <span class="brand-title">DAO Vote Simulator</span>
+        <span class="brand-subtitle">投票結果と責任設計の観察</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主要ページ">
+      <a href="../../index.html">トップ</a>
+      <a href="../01_defi_amm/index.html">AMMデモ</a>
+      <a href="../../glossary.html">用語辞書</a>
+    </nav>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Should demo / Part 3 DAO</p>
+      <h1>投票があれば、組織は本当に民主的なのか。</h1>
+      <p class="lead">DAOではトークン保有量が議決権に近い役割を持つことがあります。結果だけでなく、大口支配、低投票率、説明責任を観察します。</p>
+    </section>
+
+    <section class="workspace" aria-label="DAO投票デモ">
+      <div class="control-panel">
+        <h2>シナリオを選ぶ</h2>
+        <div class="field">
+          <label for="scenario">投票状況</label>
+          <select id="scenario" data-scenario>
+            <option value="balanced">幅広い参加</option>
+            <option value="whale">大口支配</option>
+            <option value="low">低投票率</option>
+          </select>
+        </div>
+        <div class="insight">
+          <p class="section-kicker">Proposal</p>
+          <h2>コミュニティ資金を新規事業へ使う</h2>
+          <p class="muted">可決されれば予算が動きます。失敗した場合、誰がどの範囲まで責任を負うのかも論点です。</p>
+        </div>
+      </div>
+
+      <div class="result-panel">
+        <h2>投票の内訳</h2>
+        <div class="vote-list" data-voters></div>
+
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <span class="small-label">賛成票</span>
+            <span class="stat-value" data-yes>50%</span>
+          </div>
+          <div class="stat-tile">
+            <span class="small-label">反対票</span>
+            <span class="stat-value" data-no>38%</span>
+          </div>
+          <div class="stat-tile">
+            <span class="small-label">投票参加率</span>
+            <span class="stat-value" data-turnout>94%</span>
+          </div>
+          <div class="stat-tile">
+            <span class="small-label">判断軸</span>
+            <span class="stat-value">責任</span>
+          </div>
+        </div>
+
+        <div class="vote-meter" aria-label="賛否比率">
+          <div class="vote-yes" data-meter-yes></div>
+          <div class="vote-no" data-meter-no></div>
+        </div>
+        <div data-result class="insight" style="margin-top:16px"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="axis-grid">
+        <div class="axis-tile accent-tech">
+          <h3>技術</h3>
+          <p>投票ロジック、スナップショット、実行権限はどう設計されるか。</p>
+        </div>
+        <div class="axis-tile accent-market">
+          <h3>市場</h3>
+          <p>参加者が継続して関心を持つインセンティブがあるか。</p>
+        </div>
+        <div class="axis-tile accent-reg">
+          <h3>規制</h3>
+          <p>トークンや資金管理は、どの法的枠組みに近いか。</p>
+        </div>
+        <div class="axis-tile accent-resp">
+          <h3>責任</h3>
+          <p>可決後に損失や不正が起きた場合、誰が説明するか。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-shell footer">
+    <p>観察ポイント: DAOは「会社ではないから自由」ではなく、意思決定と責任をどう設計するかが中心論点です。</p>
+  </footer>
+  <script src="../../assets/site.js"></script>
+</body>
+</html>
